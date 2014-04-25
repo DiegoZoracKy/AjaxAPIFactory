@@ -123,6 +123,6 @@ Product.Image.remove().done(function(data){
     console.log(data);
 }).fail(function(){
     console.warn('Don\'t Panic... but has failed a call at: ', this.url);
-    console.warn('Check this list of its required parameters to be sure that nothing is missing: ', Product.Image.remove._schema.data.required);
+    console.warn('Check this list of its required parameters: ', Product.Image.remove._schema.data.required);
 });
 ```
