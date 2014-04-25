@@ -9,7 +9,7 @@ Author: Diego ZoracKy | @DiegoZoracKy
 
 ## Structure
 
-The object used to construct the API will need some specific data expected by the APIFactory.
+The object used to construct the API will need some specific data expected by the AjaxAPIFactory.
 
 - *apiSchema*
 
@@ -48,10 +48,10 @@ All of the API Schema defined, will be exposed in the property "_schema" that wi
 
 ## Usage
 
-This is an example of how you can define the API and use the APIFactory to create the interface. Look that you can have nested structures and methods.
+This is an example of how you can define the API and use the AjaxAPIFactory to create the interface. Look that you can have nested structures and methods.
 
 ```javascript
-var Product = APIFactory.make({
+var Product = AjaxAPIFactory.make({
     get:{
         apiSchema:{
             route: 'http://domain/product/get',
