@@ -6,7 +6,7 @@ It depends on jQuery.
 
 ## The goal
 
-It can be useful for those who don't want a full MV\* framework or can't embrace the pattern (maybe because of legacy system) but still wants to find a way to define a good structure to yours ajax calls with an easy, well defined and light way (the module itself has (**~0.6kb** min, **~0.3kb** min gzipped).
+It can be useful for those who don't want a full MV\* framework or can't embrace the pattern (maybe because of legacy system) but still wants to find a way to define a good structure to yours ajax calls with an easy, well defined and light way (the module itself has **~0.6kb** min, **~0.3kb** min gzipped).
 
 Basically the goal will be turning this:
 
