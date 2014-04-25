@@ -1,9 +1,62 @@
 # AjaxAPIFactory
 
-Gets an object with a desired API structure and, based on it, creates a well defined interface to handle "$.ajax" calls.
-It depends on jQuery
+Gets an object with a desired API structure and based on it, creates a well defined interface to handle "$.ajax" calls.
+It depends on jQuery.
 
-Author: Diego ZoracKy | @DiegoZoracKy | http://diegozoracky.com
+
+## The goal
+
+It can be useful for those who don't want a full MV\* framework or can't embrace the pattern (maybe because of legacy system) but still wants to find a way to define a good structure to yours ajax calls with an easy and well defined way. The module itself has (**~0.6kb** min, **~0.3kb** min gzipped).
+
+Basically the goal will be turning this:
+
+```javascript
+$.ajax({
+    url: 'http://domain.com/product/save',
+    type: 'POST',
+    dataType: 'json',
+    data: {
+        title: 'New Product Title',
+        category: 'some-category'
+    }
+});
+```
+**DRY!**
+
+
+Or this
+
+
+```javascript
+var productSave = function(newData){
+    $.ajax({
+        url: 'http://domain.com/product/save',
+        type: 'POST',
+        dataType: 'json',
+        data: newData
+    });
+}
+productSave({
+    id: 1,
+    title: 'New Product Title',
+    category: 'some-category'
+})
+```
+
+Into this
+
+
+```javascript
+Product.save({
+    data: {
+        id: 1,
+        title: 'New Product Title',
+        category: 'some-category'
+    }
+});
+```
+
+For sure it can be used as a piece for another Module that handles Models and UI for example.
 
 
 ## Structure
@@ -75,30 +128,30 @@ var Product = AjaxAPIFactory.make({
         }
     },
     Image:{
-    	get:{
-	        apiSchema:{
-	            route: 'http://domain/product/image/get',
-	            method: 'GET',
-	            data: {
-	                all:[ 'image_id', 'size', 'page', 'limit', 'sort' ],
-	                defaults:{
-	                    size: 'small',
-	                    limit: 10,
-	                    page: 1
-	                }
-	            }
-	        }
-    	},
-    	remove:{
-	        apiSchema:{
-	            route: 'http://domain/product/image/delete',
-	            method: 'POST',
-	            data: {
-	                all:[ 'image_id' ],
-	                required: [ 'image_id' ]
-	            }
-	        }
-    	}
+        get:{
+            apiSchema:{
+                route: 'http://domain/product/image/get',
+                method: 'GET',
+                data: {
+                    all:[ 'image_id', 'size', 'page', 'limit', 'sort' ],
+                    defaults:{
+                        size: 'small',
+                        limit: 10,
+                        page: 1
+                    }
+                }
+            }
+        },
+        remove:{
+            apiSchema:{
+                route: 'http://domain/product/image/delete',
+                method: 'POST',
+                data: {
+                    all:[ 'image_id' ],
+                    required: [ 'image_id' ]
+                }
+            }
+        }
     }
 });
 ```
@@ -108,12 +161,12 @@ var Product = AjaxAPIFactory.make({
 
 ```javascript
 Product.get({
-	data: {
-	    category: 'some-category'
-	},
-	success: function(data){
-		console.log(data);
-	}
+    data: {
+        category: 'some-category'
+    },
+    success: function(data){
+        console.log(data);
+    }
 });
 ```
 
