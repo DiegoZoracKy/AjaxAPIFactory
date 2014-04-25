@@ -6,7 +6,7 @@ It depends on jQuery.
 
 ## The goal
 
-It can be useful for those who don't want a full MV\* framework or can't embrace the pattern (maybe because of legacy system) but still wants to find a way to define a good structure to yours ajax calls with an easy and well defined way. The module itself has (**~0.6kb** min, **~0.3kb** min gzipped).
+It can be useful for those who don't want a full MV\* framework or can't embrace the pattern (maybe because of legacy system) but still wants to find a way to define a good structure to yours ajax calls with an easy, well defined and light way (the module itself has (**~0.6kb** min, **~0.3kb** min gzipped).
 
 Basically the goal will be turning this:
 
@@ -24,7 +24,7 @@ $.ajax({
 **DRY!**
 
 
-Or this
+Or something like this:
 
 
 ```javascript
@@ -43,7 +43,7 @@ productSave({
 })
 ```
 
-Into this
+Into this:
 
 
 ```javascript
@@ -179,5 +179,4 @@ Even knowing that "$.ajax" default method is GET. I suggest you to write it anyw
 
 *all* and *required* doesn't have any effect on the "$.ajax" call or in any part of the API process. This information should be used by the application that will be using the API created by this module.
 All of the API Schema defined, will be exposed in the property "_schema" that will be found on each method.
-
 

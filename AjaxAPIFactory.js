@@ -34,7 +34,7 @@
         for (var key in schema){
             if(schema[key].apiSchema){
                 api[key] = createMethod(schema[key].apiSchema);
-                api[key]._schema = schema[key].apiSchema;
+                api[key].schema = schema[key].apiSchema;
             }else{
                 api[key] = {};
                 makeApi(schema[key], api[key]);
