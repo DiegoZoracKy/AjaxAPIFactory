@@ -118,7 +118,7 @@ var Product = AjaxAPIFactory.make({
 ```
 
 ### Now, the object created can be used in this way:
-**Remember that is all $.ajax afterall.**
+**Keep in mind that is all $.ajax afterall.**
 
 ```javascript
 Product.get({
