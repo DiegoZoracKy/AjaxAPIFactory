@@ -145,13 +145,13 @@ Product.Image.remove().done(function(data){
 
 The object used to construct the API will need some specific data expected by the AjaxAPIFactory.
 
-- *apiSchema*
+- **apiSchema**
 
 REQUIRED. Each property which should be a method needs to have its api schema defined on it. All the others properties expected by the module will be set within this.
 
 Without it the interface can't know where a method needs to go. If missing, the method will do nothing.
 
-- *route*
+- **route**
 
 REQUIRED.
 
@@ -159,21 +159,21 @@ Without it the interface can't know where a method needs to go. If missing, the 
 
 Besides this, you also can define:
 
-- *method*
+- **method**
 
 Even knowing that "$.ajax" default method is GET. I suggest you to write it anyway on the api schema, if is the case. You can use the object to have a well defined guide of the API.
 
-- *data*
+- **data**
 
-    - *defaults*
+    - **defaults**
 
     You can set default data/parameters for the "$.ajax" call.
 
-    - *all*
+    - **all**
 
     can be defined all the data expected by the "route".
 
-    - *required*
+    - **required**
 
     Can be defined the required params by the route.
 
