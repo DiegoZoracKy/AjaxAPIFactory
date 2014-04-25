@@ -136,7 +136,7 @@ Product.Image.remove().done(function(data){
     console.log(data);
 }).fail(function(){
     console.warn('Don\'t Panic... but has failed a call at: ', this.url);
-    console.warn('Check this list of its required parameters: ', Product.Image.remove._schema.data.required);
+    console.warn('Check this list of its required parameters: ', Product.Image.remove.schema.data.required);
 });
 ```
 
@@ -178,5 +178,5 @@ Even knowing that "$.ajax" default method is GET. I suggest you to write it anyw
     Can be defined the required params by the route.
 
 *all* and *required* doesn't have any effect on the "$.ajax" call or in any part of the API process. This information should be used by the application that will be using the API created by this module.
-All of the API Schema defined, will be exposed in the property "_schema" that will be found on each method.
+All of the API Schema defined, will be exposed in the property **schema** that will be found on each method.
 
