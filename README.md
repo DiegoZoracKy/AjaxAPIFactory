@@ -1,10 +1,9 @@
-
 # AjaxAPIFactory
 
 Gets an object with a desired API structure and, based on it, creates a well defined interface to handle "$.ajax" calls.
 It depends on jQuery
 
-Author: Diego ZoracKy | @DiegoZoracKy
+Author: Diego ZoracKy | @DiegoZoracKy | http://diegozoracky.com
 
 
 ## Structure
