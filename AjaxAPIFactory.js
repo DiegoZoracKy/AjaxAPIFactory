@@ -4,6 +4,7 @@
  * Gets an object with a desired API structure and, based on it, creates a well defined interface to handle "$.ajax" calls.
  *
  * Depends on jQuery
+ *
  * Check: https://github.com/DiegoZoracKy/AjaxAPIFactory
  *
  * Author: Diego ZoracKy | @DiegoZoracKy | http://diegozoracky.com
@@ -16,10 +17,10 @@
         if(!schema.route)
             return;
 
-        return $.ajax($.extend(true, {
+        return $.ajax($.extend(true, {}, {
             type: schema.method,
             url: schema.route,
-            data: ((schema.data && schema.data.defaults)? schema.data.defaults : {})
+            data: (schema.data && schema.data.defaults)? schema.data.defaults : {}
         }, settings));
     };
 
@@ -30,7 +31,7 @@
     };
 
     var makeApi = function(schema, api){
-        var api = api || {};
+        api = api || {};
         for (var key in schema){
             if(schema[key].apiSchema){
                 api[key] = createMethod(schema[key].apiSchema);
@@ -45,7 +46,7 @@
 
     return {
         make: function(schema){
-            return makeApi(schema)
+            return makeApi(schema);
         }
     };
 }());
