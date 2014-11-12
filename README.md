@@ -64,7 +64,7 @@ For sure it can be used as a piece for another Module that handles Models and UI
 This is an example of how you can define the API and use the AjaxAPIFactory to create the interface. Look that you can have nested structures and methods.
 
 ```javascript
-var Product = AjaxAPIFactory.make({
+var Product = new AjaxAPIFactory({
     get:{
         apiSchema:{
             route: 'http://domain/product/get',
