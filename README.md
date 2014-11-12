@@ -122,12 +122,8 @@ var Product = new AjaxAPIFactory({
 
 ```javascript
 Product.get({
-    data: {
-        category: 'some-category'
-    },
-    success: function(data){
-        console.log(data);
-    }
+    category: 'some-category',
+    type: 'box'
 });
 ```
 
@@ -161,7 +157,7 @@ Besides this, you also can define:
 
 - **method**
 
-Even knowing that "$.ajax" default method is GET. I suggest you to write it anyway on the api schema, if is the case. You can use the object to have a well defined guide of the API.
+Even knowing that "$.ajax" default method is GET. I suggest you to write it on the api schema. You can use the object to have a well defined guide of the app's API.
 
 - **data**
 

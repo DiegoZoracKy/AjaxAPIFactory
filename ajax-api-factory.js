@@ -8,37 +8,39 @@
  * Check: https://github.com/DiegoZoracKy/AjaxAPIFactory
  *
  * @author Diego ZoracKy | @DiegoZoracKy | http://diegozoracky.com
-*/
+ */
 var AjaxAPIFactory = function(schema) {
-    "use strict";
+	"use strict";
 
-    makeApi(schema, this);
+	makeApi(schema, this);
 
-    function createMethod(api){
-        return function(settings){
-             return (function (schema, settings){
-                if(!schema.route)
-                    return;
+	function createMethod(api) {
+		return function(data) {
+			return (function(schema, data) {
+				if (!schema.route)
+					return;
 
-                return $.ajax($.extend(true, {}, {
-                    type: schema.method,
-                    url: schema.route,
-                    data: (schema.data && schema.data.defaults)? schema.data.defaults : {}
-                }, settings));
+				return $.ajax($.extend(true, {}, {
+					type: schema.method,
+					url: schema.route,
+					data: (schema.data && schema.data.defaults) ? schema.data.defaults : {}
+				}, {
+					data: data
+				}));
 
-            })(api, settings);
-        };
-    }
+			})(api, data);
+		};
+	}
 
-    function makeApi(schema, api){
-        for (var key in schema){
-            if(schema[key].apiSchema){
-                api[key] = createMethod(schema[key].apiSchema);
-                api[key].schema = schema[key].apiSchema;
-            }else{
-                api[key] = {};
-                makeApi(schema[key], api[key]);
-            }
-        }
-    }
+	function makeApi(schema, api) {
+		for (var key in schema) {
+			if (schema[key].apiSchema) {
+				api[key] = createMethod(schema[key].apiSchema);
+				api[key].schema = schema[key].apiSchema;
+			} else {
+				api[key] = {};
+				makeApi(schema[key], api[key]);
+			}
+		}
+	}
 };
